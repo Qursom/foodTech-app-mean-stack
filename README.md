@@ -11,8 +11,12 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](#)
 [![Gemini AI](https://img.shields.io/badge/Google%20Gemini-AI%20Powered-8E75F8?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](#license)
+[![Free Trial](https://img.shields.io/badge/Free%20Trial-Try%20Now-FF5722?style=for-the-badge&logo=rocket&logoColor=white)](https://foodtech-app-mean-stack.onrender.com/)
 
-🌐 **[Live Demo →](https://foodie-j5re.onrender.com/)**
+🌐 **[🚀 Live Demo — Try FoodTech Free →](https://foodtech-app-mean-stack.onrender.com/)**
+
+### 🎁 Free Trial — No credit card required
+_Experience the full FoodTech platform instantly in your browser. Browse the menu, place orders, track deliveries, and chat with our AI assistant — **all on us**._
 
 </div>
 
@@ -101,7 +105,7 @@ flowchart LR
 - **MongoDB Atlas** connection string
 - **Google Gemini API key** → grab a free one at [aistudio.google.com](https://aistudio.google.com/app/apikey)
 
-> 🎁 **Free Trial available!** Google Gemini offers a generous **free tier** — no credit card required. You can sign up at [Google AI Studio](https://aistudio.google.com/app/apikey) and start using the chatbot instantly. If you need higher limits later, paid plans are available via [Google AI Studio pricing](https://ai.google.dev/pricing).
+> 🎁 **Prefer not to install anything?** Try FoodTech instantly in your browser — **free trial, no credit card required** → [https://foodtech-app-mean-stack.onrender.com/](https://foodtech-app-mean-stack.onrender.com/)
 
 ### 📥 Clone
 
