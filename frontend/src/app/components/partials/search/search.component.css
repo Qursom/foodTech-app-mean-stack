@@ -1,36 +1,57 @@
-div{
+div {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  padding: 2rem 1rem 1rem;
 }
 
-input{
-  border-radius: 10rem 0 0 10rem;
+div > :where(input, button) {
+  height: 52px;
   border: none;
-  height: 3rem;
-  width: 20rem;
-  background-color: white;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  outline: none;
-}
-
-div button{
-  color: grey;
-  height: 3rem;
-  width: 5rem;
   font-size: 1rem;
-  border-radius: 0 10rem 10rem 0;
-  border: none;
-  background-color: rgb(29, 205, 205);
-  color: white;
-  opacity: 0.8;
   outline: none;
+  transition: box-shadow var(--transition);
 }
 
-div button:hover{
-  opacity: 1;
-  cursor: pointer;
+input {
+  border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+  width: min(100%, 22rem);
+  background: var(--surface);
+  padding: 0 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+input::placeholder {
+  color: #a3aab4;
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(29, 205, 205, 0.25);
+}
+
+div button {
+  padding: 0 1.5rem;
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+div button:hover {
+  background: var(--primary-600);
+}
+
+@media (max-width: 480px) {
+  div {
+    padding: 1.25rem 0.75rem 0.5rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  div > :where(input, button) {
+    height: 46px;
+  }
 }

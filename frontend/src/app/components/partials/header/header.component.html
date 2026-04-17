@@ -1,26 +1,38 @@
+<header [class.menu-open]="isMenuOpen">
+    <div class="container">
+        <a class="logo" [routerLink]="['/']" (click)="closeMenu()">
+            <span class="logo-icon">🍔</span>
+            <span class="logo-text">Food<strong>Tech</strong></span>
+        </a>
 
-<header>
-    <div class = "container">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" >Food Tech</a>
-        <nav>
+        <button class="hamburger" type="button" aria-label="Toggle navigation" [attr.aria-expanded]="isMenuOpen" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav [class.open]="isMenuOpen">
             <ul>
-              <li  *ngIf="!isAuth"> 
-                <a routerLink="/login">Login</a>
-              </li>
-              <li  *ngIf="isAuth" class = "menu-container">
-                <a routerLink="/dashboard">{{user.name}}</a>
-                <div class = "menu">
-                    <a routerLink="/profile">Profile</a>
-                    <a routerLink="/orders">Orders</a>
-                    <a (click)="logout()">Logout</a>
-                </div>
-              </li>
-              <li>
-                <a routerLink="/cart-page">Cart<span *ngIf="cartQuantity">{{cartQuantity}}</span></a>
-
-              </li>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login" routerLinkActive="active" (click)="closeMenu()">Login</a>
+                </li>
+                <li *ngIf="isAuth" class="menu-container">
+                    <a routerLink="/profile" routerLinkActive="active" (click)="closeMenu()">
+                        👋 {{ user.name }}
+                    </a>
+                    <div class="menu">
+                        <a routerLink="/profile" (click)="closeMenu()">Profile</a>
+                        <a routerLink="/orders" (click)="closeMenu()">Orders</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li>
+                    <a class="cart-link" routerLink="/cart-page" routerLinkActive="active" (click)="closeMenu()">
+                        🛒 Cart
+                        <span *ngIf="cartQuantity" class="cart-badge">{{ cartQuantity }}</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
 </header>
-

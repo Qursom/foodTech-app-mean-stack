@@ -1,115 +1,164 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border-radius: 1rem;
-    margin: 5rem;
-    /* background-color: rgb(29, 205, 205); */
-    background-color: whitesmoke;
-  }
-  
-  .container > *{
-    min-width: 25rem;
-    max-width: 40rem;
-  }
-  
-  img{
-    border-radius: 15rem;
-    flex: 1 0;
-    object-fit: cover;
-    height: 35rem;
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0;
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.favorite {
+  color: var(--danger);
+  font-size: 2rem;
+}
+
+.favorite.not {
+  color: #c2c7d0;
+}
+
+.origins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0;
+}
+
+.origins span {
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tags a {
+  background: var(--primary-50);
+  color: var(--primary);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background var(--transition);
+}
+
+.tags a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.cook-time {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.cook-time span {
+  font-size: 1rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0.5rem 0;
+}
+
+.price::before {
+  content: "Price: ";
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+button {
+  align-self: flex-start;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), transform var(--transition);
+}
+
+button:hover {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
     margin: 1rem;
-    padding: 2rem;
+    gap: 1rem;
   }
-  
-  .details{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    color:teal;
-    margin-left: 1rem;
+
+  .name {
+    font-size: 1.6rem;
   }
-  
-  .header{
-    display: flex;
-    justify-content: space-between;
+
+  .price {
+    font-size: 1.45rem;
   }
-  .name{
-    font-size: 2rem;
-    font-weight: bold;
+
+  button {
+    align-self: stretch;
+    text-align: center;
   }
-  
-  .favorite{
-    color: teal;
-    font-size: 2.5rem;
-  }
-  
-  .favorite.not{
-    color: grey;
-  }
-  .origins{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-  }
-  
-  .origins span{
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    margin: 0.5rem 0.5rem 0.5rem 0;
-    border-radius: 2rem;
-    background-color: darkcyan;
-    color:white;
-  }
-  
-  .tags{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .tags a{
-    background-color: darkgray;
-    padding: 0.3rem 1rem;
-    margin: 0.2rem 0.15rem;
-    border-radius: 10rem;
-    font-weight: 600;
-    color: teal;
-  }
-  
-  .cook-time{
-    margin-top: 1rem;
-  }
-  
-  .cook-time span{
-    padding: 0.6rem 2rem 0.6rem 0;
-    border-radius: 10rem;
-    font-size: 1.3rem;
-  }
-  
-  .price{
-    font-size: 1.8rem;
-    margin: 2rem 2rem 2rem 0;
-    color: green;
-  }
-  
-  .price::before{
-    content: "Price: ";
-    color: black;
-  }
-  
-  button{
-    color: white;
-    background:rgb(29, 205, 205);
-    border: 2px solid teal;
-    font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .container {
     padding: 1rem;
-    border-radius: 15rem;
-    
+    margin: 0.75rem;
   }
-  
-  button:hover{
-    opacity: 0.9;
-    cursor: pointer;
+
+  img {
+    max-width: 100%;
   }
+}

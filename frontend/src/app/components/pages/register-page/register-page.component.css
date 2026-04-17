@@ -1,23 +1,51 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 3rem;
-  }
-  
-  .details{
-    width: 25rem;
-  }
-  
-  .login{
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+}
+
+.details {
+  width: 100%;
+  max-width: 28rem;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.register a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.register a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 0.75rem;
   }
 
-  .login a{
-    color:rgb(29, 205, 205);
-   
+  .details {
+    padding: 1.5rem 1.25rem;
   }
+}

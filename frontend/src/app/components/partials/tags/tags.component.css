@@ -1,18 +1,42 @@
-div{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.25rem 1rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
+
 div a {
-    background-color: #f0f0f0;
-    padding: 0.3rem 1rem;
-    margin: 0.2rem 0.15rem;
-    border-radius: 10rem;
-    font-weight: 600;
-     color:teal
-  
+  background: var(--surface);
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+div a:hover {
+  background: var(--primary-50);
+}
+
+div a.active {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  div {
+    padding: 0.25rem 0.75rem 0.75rem;
   }
-  
-  a .active {
-    background-color:rgb(103, 186, 214); 
+
+  div a {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.8rem;
   }
+}

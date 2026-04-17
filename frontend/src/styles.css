@@ -1,25 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 
-*{
-  box-sizing: border-box;
+:root {
+  --primary: #0f9e9e;
+  --primary-600: #0b8787;
+  --primary-50: #e6f7f7;
+  --accent: #1dcdcd;
+  --accent-600: #17b8b8;
+  --danger: #ff4d4d;
+  --warning: #f5a623;
+  --success: #28a745;
 
+  --text: #1f2933;
+  --text-muted: #5f6b7a;
+  --text-inverse: #ffffff;
+
+  --bg: #f5f7fa;
+  --bg-gradient: linear-gradient(135deg, #0f9e9e 0%, #1dcdcd 100%);
+  --surface: #ffffff;
+  --surface-alt: #f7f9fc;
+  --border: #e4e7eb;
+
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 158, 158, 0.08);
+  --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  --transition: 180ms ease;
 }
 
-html{
-  font-size:16px;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 html,
-button{
-  font-family: "Quicksand", "sans-serif";
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Quicksand", "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
-body{
+body {
   margin: 0;
-  background-color: teal;
+  min-height: 100vh;
+  background: var(--bg);
+  background-image:
+    radial-gradient(1200px 600px at -10% -10%, rgba(29, 205, 205, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(15, 158, 158, 0.12), transparent 60%),
+    linear-gradient(180deg, #f2fbfb 0%, #f5f7fa 100%);
+  color: var(--text);
+  line-height: 1.5;
 }
 
-a{
+a {
   text-decoration: none;
-}/* You can add global styles to this file, and also import other style files */
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Utility focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Nicer scrollbars (desktop) */
+@media (min-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(15, 158, 158, 0.35);
+    border-radius: 999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(15, 158, 158, 0.6);
+  }
+}
+
+/* Mobile typography scaling */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Toastr overrides for mobile */
+@media (max-width: 600px) {
+  #toast-container.toast-bottom-right {
+    right: 8px !important;
+    left: 8px !important;
+    bottom: 80px !important;
+  }
+  #toast-container > div {
+    width: auto !important;
+  }
+}
