@@ -4,6 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PasswordsMatchValidator } from '../../../shared/validators/password_match_validators';
 import { IUserRegister } from '../../../shared/interfaces/IUserRegister';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-register-page',
@@ -22,7 +23,8 @@ export class RegisterPageComponent {
     private formBuilder :FormBuilder,
     private userService:UserService,
     private activatedRoute:ActivatedRoute,
-    private router:Router){
+    private router:Router,
+    private cartService: CartService){
 
   }
 
@@ -61,8 +63,17 @@ export class RegisterPageComponent {
     };
 
     this.userService.register(user).subscribe(_ => {
-      this.router.navigateByUrl(this.returnUrl);
+      this.router.navigateByUrl(this.resolveRedirectUrl());
     })
+  }
+
+  private resolveRedirectUrl(): string {
+    const target = this.returnUrl;
+    if (!target || target === '/' || target === '') return '/';
+    if (target.startsWith('/cart-page') && this.cartService.getCart().items.length === 0) {
+      return '/';
+    }
+    return target;
   }
 
 }

@@ -4,6 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IUserLogin } from '../../../shared/interfaces/IUserLogin';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +19,8 @@ export class LoginPageComponent implements OnInit {
 
   constructor( private formBuilder:FormBuilder,private userService:UserService,private activatedRoute:ActivatedRoute,
     private toastrService: ToastrService,
-    private router:Router){
+    private router:Router,
+    private cartService: CartService){
    
 
   }
@@ -44,8 +46,17 @@ export class LoginPageComponent implements OnInit {
 
     this.userService.login({email:this.fc.email.value,
        password: this.fc.password.value}).subscribe(() => {
-         this.router.navigateByUrl(this.returnUrl);
+         this.router.navigateByUrl(this.resolveRedirectUrl());
        });
+  }
+
+  private resolveRedirectUrl(): string {
+    const target = this.returnUrl;
+    if (!target || target === '/' || target === '') return '/';
+    if (target.startsWith('/cart-page') && this.cartService.getCart().items.length === 0) {
+      return '/';
+    }
+    return target;
   }
   
 
