@@ -56,12 +56,12 @@ The platform now ships with an end-to-end **AI customer support assistant**.
 
 ```mermaid
 flowchart LR
-    U["👤 User"] -->|message + history| FE["🌐 Angular Chat Widget"]
-    FE -->|POST /api/chatbot/send-message| BE["⚙️ Express + TypeScript"]
-    BE -->|fetch foods<br/>(60s cache)| DB[("🍱 MongoDB<br/>Menu")]
-    BE -->|grounded prompt| G["✨ Gemini 2.5 Flash"]
-    G -->|reply| BE
-    BE -->|JSON response| FE
+    U["User"] -- "message + history" --> FE["Angular Chat Widget"]
+    FE -- "POST /api/chatbot/send-message" --> BE["Express + TypeScript"]
+    BE -- "fetch foods (60s cache)" --> DB[("MongoDB Menu")]
+    BE -- "grounded prompt" --> G["Gemini 2.5 Flash"]
+    G -- "reply" --> BE
+    BE -- "JSON response" --> FE
     FE --> U
 ```
 
@@ -100,6 +100,8 @@ flowchart LR
 - **Angular CLI 17**
 - **MongoDB Atlas** connection string
 - **Google Gemini API key** → grab a free one at [aistudio.google.com](https://aistudio.google.com/app/apikey)
+
+> 🎁 **Free Trial available!** Google Gemini offers a generous **free tier** — no credit card required. You can sign up at [Google AI Studio](https://aistudio.google.com/app/apikey) and start using the chatbot instantly. If you need higher limits later, paid plans are available via [Google AI Studio pricing](https://ai.google.dev/pricing).
 
 ### 📥 Clone
 
