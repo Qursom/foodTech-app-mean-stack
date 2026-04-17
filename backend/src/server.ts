@@ -17,6 +17,7 @@ dbConnect(mongoURI);
 import foodRouter from "./router/food.router";
 import userRouter from "./router/user.router";
 import orderRouter from "./router/order.router";
+import chatbotRouter from "./router/chatbot.router";
 
 const app = express();
 app.use(express.json())
@@ -29,6 +30,7 @@ app.use(cors({
 app.use("/api/foods",foodRouter);
 app.use("/api/users",userRouter);
 app.use("/api/orders",orderRouter);
+app.use("/api/chatbot",chatbotRouter);
 
 
 

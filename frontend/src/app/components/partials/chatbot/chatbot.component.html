@@ -1,0 +1,23 @@
+<div class="chatbot-container">
+  <!-- Chat Toggle Button -->
+  <button class="chat-toggle-btn" (click)="toggleChat()" *ngIf="!(isOpen$ | async)">
+    <i class="fas fa-comments"></i>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chat-window" *ngIf="isOpen$ | async">
+    <div class="chat-header">
+      <span>FoodTech Support</span>
+      <button class="close-btn" (click)="closeChat()">&times;</button>
+    </div>
+    <div class="chat-messages">
+      <div class="message" *ngFor="let msg of messages$ | async" [ngClass]="{'user': msg.role === 'user', 'assistant': msg.role === 'assistant'}">
+        {{ msg.text }}
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" [(ngModel)]="newMessage" (keypress)="onKeyPress($event)" placeholder="Type your message..." />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

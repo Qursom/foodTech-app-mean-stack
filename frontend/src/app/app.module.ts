@@ -14,7 +14,7 @@ import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
@@ -33,6 +33,7 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { OrderListsComponent } from './components/pages/order-lists/order-lists.component';
 import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
+import { ChatbotComponent } from './components/partials/chatbot/chatbot.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { UserProfileComponent } from './components/pages/user-profile/user-profi
     PaypalButtonComponent,
     OrderTrackPageComponent,
     OrderListsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { UserProfileComponent } from './components/pages/user-profile/user-profi
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-bottom-right',
