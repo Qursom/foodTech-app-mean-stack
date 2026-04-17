@@ -6,6 +6,7 @@ import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
+import { CartService } from './cart.service';
 
 const USER_KEY ='User';
 
@@ -16,7 +17,11 @@ export class UserService {
   private userSubject =
   new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable:Observable<User>;
-  constructor(private http:HttpClient, private toastrService:ToastrService) {
+  constructor(
+    private http:HttpClient,
+    private toastrService:ToastrService,
+    private cartService: CartService
+  ) {
     this.userObservable = this.userSubject.asObservable();
   }
 
@@ -72,6 +77,7 @@ export class UserService {
 
 
   logout(){
+    this.cartService.clearCart();
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     window.location.reload();
