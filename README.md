@@ -118,14 +118,6 @@ cd foodTech-app-mean-stack
 
 Create **`backend/src/.env`**:
 
-```env
-Mongo_URI=<your mongodb connection string>
-JWT_SECRET=<your jwt secret>
-GEMINI_API_KEY=<your google gemini api key>
-```
-
-> 💡 Add `backend/src/.env` to `.gitignore` to keep your secrets safe.
-
 ### 🖥️ Run the Backend
 
 ```bash
